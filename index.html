@@ -105,7 +105,7 @@ header h1{font-family:"Bebas Neue","Oswald","Arial Narrow",sans-serif;font-weigh
 .day{display:grid;grid-template-columns:130px 1fr;gap:26px;margin-bottom:26px;align-items:start}
 .arch{width:130px;height:168px;border-radius:65px 65px 4px 4px;overflow:hidden;position:relative;box-shadow:0 6px 18px rgba(0,0,0,.08)}
 .arch svg{display:block;width:100%;height:100%}
-.arch .badge{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.88);color:#3b3f5e;text-align:center;font-family:"Bebas Neue","Oswald",sans-serif;font-size:17px;letter-spacing:1px;padding:4px 0 2px;line-height:1}
+.arch .badge{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.88);color:#3b3f5e;text-align:center;font-family:"Bebas Neue","Oswald",sans-serif;font-size:20px;letter-spacing:1px;padding:6px 0 4px;line-height:1}
 .arch .badge small{display:block;font:500 9.5px Poppins,sans-serif;letter-spacing:.08em;color:#a8683a;margin-top:1px}
 .day.today .arch{box-shadow:0 0 0 3px var(--today)}
 .day.today .dh>span::after{content:"Today";font:600 10px Poppins,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:var(--today);color:#fff;border-radius:4px;padding:3px 6px;margin-left:10px;vertical-align:middle}
@@ -356,7 +356,7 @@ SEGS.forEach(s=>{
     if(ch) rows+=`<div class="row"><div class="lbl">Schedule</div><div class="chips">${ch}</div></div>`;
     if(o.hol) rows+=`<div class="row"><div class="lbl">Holiday</div><div class="txt">${o.hol}</div></div>`;
     if(!rows) rows=`<div class="row"><div class="lbl">Open</div><div class="empty">Free day</div></div>`;
-    L+=`<article class="day${today}"><div class="arch">${art(o.loc)}<div class="badge">${MON[dt.getMonth()]} ${dt.getDate()}<small>${DOW[dt.getDay()].toUpperCase()}</small></div></div><div class="dcontent"><div class="dh"><span>Day ${dn} <em>·</em> ${esc(o.title||LOC[o.loc].name)}</span>${wxPill(k,wxTypical(k))}</div><div class="tl">${rows}</div></div></article>`;
+    L+=`<article class="day${today}"><div class="arch">${art(o.loc)}<div class="badge">Day ${dn}</div></div><div class="dcontent"><div class="dh"><span>${DOW[dt.getDay()]} ${MON[dt.getMonth()]} ${dt.getDate()} <em>·</em> ${esc(o.title||LOC[o.loc].name)}</span>${wxPill(k,wxTypical(k))}</div><div class="tl">${rows}</div></div></article>`;
   }
   L+=`</section>`;
 });
@@ -389,7 +389,7 @@ document.getElementById("cal").innerHTML=month(10,"October")+month(11,"November"
 const bL=document.getElementById("bList"),bC=document.getElementById("bCal"),list=document.getElementById("list"),cal=document.getElementById("cal");
 function show(v){const c=v==="cal";cal.classList.toggle("hide",!c);list.classList.toggle("hide",c);bC.classList.toggle("on",c);bL.classList.toggle("on",!c)}
 bL.onclick=()=>show("list");bC.onclick=()=>show("cal");
-show(window.innerWidth>=800?"cal":"list");
+show("list");
 </script>
 </body>
 </html>
