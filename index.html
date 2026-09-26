@@ -204,7 +204,7 @@ range(10,8,10,11,(m,x)=>set(m,x,{loc:"ireland"}));
 days[d(10,8)].items=["7:55 AM Arrive Dublin (Delta 258)","10:00 AM Pick up rental car · Dublin Airport","10:30 AM Drive to Bangor · about 2 hrs, 111 mi (M1/A1 via Newry & Belfast)","1:00 PM Check in · Airbnb, 13 Hamilton Road, Bangor"];
 set(10,12,{loc:"travel",hol:"Columbus Day",items:["Check out of Bangor Airbnb","Return rental car · Dublin Airport (booked 10:00 AM)","Ryanair FR1984 · 7:25 AM Dublin → 10:45 AM Carcassonne","Pick up rental car · Hertz, Avignon TGV (booked 10:00 AM)","Explore Carcassonne","6–9 PM Drive to Robion"]});
 range(10,13,11,8,(m,x)=>set(m,x,{loc:"robion"}));
-set(11,9,{loc:"travel",items:["10:00 AM Return rental car · Hertz, Avignon TGV","easyJet EJU4479 · 5:20 PM Lyon (T1) → 7:30 PM Marrakech","Bag drop 2:50–4:20 PM","Check in: Delta Hotels Marrakech Eden Andalou"]});
+set(11,9,{loc:"travel",items:["10:00 AM Return rental car · Hertz, Avignon TGV","Train · Rail Europe · Avignon TGV → Lyon Saint-Exupéry Airport · about 1 hr direct · arrive by ~2:30 PM for bag drop","easyJet EJU4479 · 5:20 PM Lyon (T1) → 7:30 PM Marrakech","Bag drop 2:50–4:20 PM","Check in: Delta Hotels Marrakech Eden Andalou"]});
 range(11,10,11,13,(m,x)=>set(m,x,{loc:"morocco"}));
 set(11,14,{loc:"travel",items:["Check out of hotel early","Bag drop 4:00–6:00 AM","easyJet EJU6005 · 7:00 AM Marrakech → 11:30 AM Paris CDG (T2D)","Check in · Paris Airbnb"]});
 range(11,15,11,17,(m,x)=>set(m,x,{loc:"paris"}));
@@ -255,7 +255,7 @@ const SEGS=[
   {loc:"ireland",title:"Ireland",note:"Airbnb · 13 Hamilton Road, Bangor, Northern Ireland · Rental car from Dublin Airport",from:[10,8],to:[10,11]},
   {loc:"travel",title:"Carcassonne → Robion",from:[10,12],to:[10,12]},
   {loc:"robion",title:"Robion, France",note:"Hertz rental car · Avignon TGV, Oct 12 – Nov 9",from:[10,13],to:[11,8]},
-  {loc:"travel",title:"Lyon → Marrakech",from:[11,9],to:[11,9]},
+  {loc:"travel",title:"Avignon → Lyon → Marrakech",from:[11,9],to:[11,9]},
   {loc:"morocco",title:"Marrakech, Morocco",note:"Delta Hotels by Marriott Marrakech Eden Andalou · Km 4 road of Amizmiz · +212 5 24 45 94 00",from:[11,10],to:[11,13]},
   {loc:"travel",title:"Marrakech → Paris",from:[11,14],to:[11,14]},
   {loc:"paris",title:"Paris",note:"Airbnb · Nov 14–18",from:[11,15],to:[11,17]},
@@ -334,6 +334,7 @@ function parse(t){
   m=t.match(/^((?:Delta|Ryanair|easyJet|JetBlue)(?: \w+)?) · (.*)$/); if(m) return [m[1],m[2]];
   if(/^BYU /.test(t)) return ["BYU Football",t];
   if(/^Drive · /.test(t)) return ["Drive",t.slice(8)];
+  if(/^Train · /.test(t)) return ["Train",t.slice(8)];
   if(/^Check (in|out)/.test(t)) return ["Stay",t];
   if(/rental car/i.test(t)) return ["Car",t];
   if(/^Bag drop/.test(t)) return ["Bags",t];
