@@ -196,7 +196,7 @@ function set(m,day,o){const k=d(m,day);days[k]=Object.assign(days[k]||{items:[],
 function range(m1,a,m2,b,fn){let dt=new Date(2026,m1-1,a),end=new Date(2026,m2-1,b);while(dt<=end){fn(dt.getMonth()+1,dt.getDate());dt.setDate(dt.getDate()+1)}}
 
 // Locations
-set(10,7,{loc:"travel",items:["Delta · 10:08 AM SLC → Minneapolis","Delta 258 · 6:25 PM Minneapolis → Dublin (overnight)"]});
+set(10,7,{loc:"travel",items:["Delta · 10:08 AM SLC → Minneapolis","2:05 PM Arrive Minneapolis (MSP, est.) · about 4 hr layover","2:30 PM Lunch at MSP airport","Delta 258 · 6:25 PM Minneapolis → Dublin (overnight)"]});
 range(10,8,10,11,(m,x)=>set(m,x,{loc:"ireland"}));
 days[d(10,8)].items=["7:55 AM Arrive Dublin (Delta 258)","10:00 AM Pick up rental car · Dublin Airport","10:30 AM Drive to Bangor · about 2 hrs, 111 mi (M1/A1 via Newry & Belfast)","1:00 PM Check in · Airbnb, 13 Hamilton Road, Bangor"];
 set(10,12,{loc:"travel",hol:"Columbus Day",items:["Check out of Bangor Airbnb","Return rental car · Dublin Airport (booked 10:00 AM)","Ryanair FR1984 · 7:25 AM Dublin → 10:45 AM Carcassonne","Pick up rental car · Hertz, Avignon TGV (booked 10:00 AM)","Explore Carcassonne","6–9 PM Drive to Robion"]});
