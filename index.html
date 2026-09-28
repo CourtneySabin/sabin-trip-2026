@@ -237,9 +237,9 @@ function range(m1,a,m2,b,fn){let dt=new Date(2026,m1-1,a),end=new Date(2026,m2-1
 set(10,7,{loc:"travel",items:["Delta · 10:08 AM SLC → Minneapolis","2:05 PM Arrive Minneapolis (MSP, est.) · about 4 hr layover","2:30 PM Lunch at MSP airport","Delta 258 · 6:25 PM Minneapolis → Dublin (overnight)"]});
 range(10,8,10,11,(m,x)=>set(m,x,{loc:"ireland"}));
 days[d(10,8)].items=["7:55 AM Arrive Dublin (Delta 258)","10:00 AM Pick up rental car · Dublin Airport","10:30 AM Drive to Bangor · about 2 hrs, 111 mi (M1/A1 via Newry & Belfast)","1:00 PM Check in · Airbnb, 13 Hamilton Road, Bangor"];
-set(10,12,{loc:"travel",hol:"Columbus Day",items:["Check out of Bangor Airbnb","Return rental car · Dublin Airport (booked 10:00 AM)","Ryanair FR1984 · 7:25 AM Dublin → 10:45 AM Carcassonne","11:00 AM Pick up minivan · Alamo, Carcassonne Airport (Peugeot 5008, 7 seats, one-way)","Drive · Carcassonne → Avignon · about 2 hr 30 min, 150 mi (A61/A9) · lunch on the way","3:00 PM Drop off minivan · Alamo, Chemin de Gigognan, Avignon","3:00 PM Pick up 2 rental cars · Europcar, Avignon TGV station (Place de l'Europe) · Compact, automatic (Courtney) + Economy, manual (Grayson)","Drive · Avignon TGV → Robion · about 30 min"]});
+set(10,12,{loc:"travel",hol:"Columbus Day",items:["Check out of Bangor Airbnb","Return rental car · Dublin Airport (booked 10:00 AM)","Ryanair FR1984 · 7:25 AM Dublin → 10:45 AM Carcassonne","11:00 AM Pick up 2 rental cars · Europcar, Carcassonne Airport · Compact, automatic, Toyota Corolla or similar (Courtney) + Economy, manual, Peugeot 208 or similar (Grayson)","Drive · Carcassonne → Robion · about 2 hr 45 min, 165 mi (A61/A9/A7) · lunch on the way"]});
 range(10,13,11,8,(m,x)=>set(m,x,{loc:"robion"}));
-set(11,9,{loc:"travel",items:["10:00 AM Return both rental cars · Europcar, Avignon TGV (booked for 12 PM, drop off early for the train)","10:48 AM Frecciarossa train (booked, Rail Europe) · Avignon TGV → Lyon-St Exupéry TGV, direct · arrive 11:40 AM","11:40 AM Lunch + wait at Lyon airport · bag drop opens 2:50 PM","easyJet EJU4479 · 5:20 PM Lyon (T1) → 7:30 PM Marrakech","Bag drop 2:50–4:20 PM","Check in: Delta Hotels Marrakech Eden Andalou"]});
+set(11,9,{loc:"travel",items:["10:00 AM Return both rental cars · Europcar, Avignon TGV (booked for 11 AM, drop off early for the train)","10:48 AM Frecciarossa train (booked, Rail Europe) · Avignon TGV → Lyon-St Exupéry TGV, direct · arrive 11:40 AM","11:40 AM Lunch + wait at Lyon airport · bag drop opens 2:50 PM","easyJet EJU4479 · 5:20 PM Lyon (T1) → 7:30 PM Marrakech","Bag drop 2:50–4:20 PM","Check in: Delta Hotels Marrakech Eden Andalou"]});
 range(11,10,11,13,(m,x)=>set(m,x,{loc:"morocco"}));
 set(11,14,{loc:"travel",items:["Check out of hotel early","Bag drop 4:00–6:00 AM","easyJet EJU6005 · 7:00 AM Marrakech → 11:30 AM Paris CDG (T2D)","Check in · Paris Airbnb"]});
 range(11,15,11,17,(m,x)=>set(m,x,{loc:"paris"}));
@@ -289,7 +289,7 @@ const SEGS=[
   {loc:"travel",title:"Travel to Ireland",from:[10,7],to:[10,7]},
   {loc:"ireland",title:"Ireland",note:"Airbnb · 13 Hamilton Road, Bangor, Northern Ireland · Rental car from Dublin Airport",from:[10,8],to:[10,11]},
   {loc:"travel",title:"Dublin → Carcassonne → Robion",from:[10,12],to:[10,12]},
-  {loc:"robion",title:"Robion, France",note:"2 Europcar rental cars · Avignon TGV, Oct 12 – Nov 9",from:[10,13],to:[11,8]},
+  {loc:"robion",title:"Robion, France",note:"2 Europcar rental cars · pick up Carcassonne Airport Oct 12, return Avignon TGV Nov 9",from:[10,13],to:[11,8]},
   {loc:"travel",title:"Avignon → Lyon → Marrakech",from:[11,9],to:[11,9]},
   {loc:"morocco",title:"Marrakech, Morocco",note:"Delta Hotels by Marriott Marrakech Eden Andalou · Km 4 road of Amizmiz · +212 5 24 45 94 00",from:[11,10],to:[11,13]},
   {loc:"travel",title:"Marrakech → Paris",from:[11,14],to:[11,14]},
